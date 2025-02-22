@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; 
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    width: 32%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh; 
+    overflow-y: auto; 
+
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.first-section, .second-section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    width: 100%;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #388E3C;
+}
+
+#addEmail {
+    background-color: #4CAF50;
+}
+
+#addEmail:hover {
+    background-color: #2E7D32;
+}
+
+.removeEmail {
+    background-color: #f74658;
+    border: none;
+    color: white;
+    padding: 11px 10px;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.removeEmail:hover {
+    background-color: #c82333;
+}
+
+#inviteEmails {
+    margin-top: 10px;
+    max-height: 200px; 
+    overflow-y: auto; 
+    padding-right: 5px;
+}
+
+.email-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+.email-field button{
+    background-color: #f74658;
+    border: none;
+    color: white;
+    padding: 11px 10px;
+    font-size: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    width: 20%;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+a.btn {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+
+a.btn:hover {
+    background: #388E3C;
+}
+#addEmail{
+    width: 49%;
+}
+#submit{
+    width: 49%;
+}
+
+#remove{
+    width: 20%;
+}
+
+#country{
+    width: 100%;
+}
