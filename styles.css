@@ -27,10 +27,6 @@ h2 {
     color: #333;
 }
 
-.first-section, .second-section {
-    margin-bottom: 20px;
-}
-
 label {
     display: block;
     margin-top: 10px;
@@ -149,3 +145,5 @@ a.btn:hover {
 #country{
     width: 100%;
 }
+
+

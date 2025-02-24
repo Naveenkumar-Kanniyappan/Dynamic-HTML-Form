@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
-        
+  
+        document.querySelectorAll(".error").forEach(el => el.textContent = "");
+
         let errors = false;
 
         let fullName = document.getElementById("fullName").value.trim();
@@ -37,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let country = document.getElementById("country").value;
         let inviteEmails = document.querySelectorAll(".invite-email");
 
-        // Validation Conditions
         if (fullName === "") {
             document.getElementById("fullNameError").textContent = "Full name is required.";
             errors = true;
@@ -74,12 +75,27 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         let invitedEmailsArray = [];
+        
         inviteEmails.forEach(emailField => {
             let emailValue = emailField.value.trim();
+            let existingError = emailField.parentNode.querySelector(".error");
+        
+            if (existingError) {
+                existingError.remove();
+            }
+        
             if (emailValue && /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(emailValue)) {
                 invitedEmailsArray.push(emailValue);
+            } 
+            else {
+                let errorMsg = document.createElement("small");
+                errorMsg.classList.add("error");
+                errorMsg.textContent = "Enter a valid invite email address.";
+                emailField.parentNode.appendChild(errorMsg);
+                errors = true;
             }
         });
+        
 
         if (errors) {
             return;
@@ -101,5 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("users", JSON.stringify(storedData));
 
         window.location.href = "list.html";
+        
     });
 });
