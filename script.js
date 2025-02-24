@@ -21,11 +21,18 @@ document.addEventListener("DOMContentLoaded", function () {
         div.appendChild(input);
         div.appendChild(removeBtn);
         inviteEmailsDiv.appendChild(div);
+
+        input.addEventListener("input", function () {
+            let errorElement = input.parentNode.querySelector(".error");
+            if (errorElement && /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(input.value.trim())) {
+                errorElement.remove();
+            }
+        });
     });
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
-  
+
         document.querySelectorAll(".error").forEach(el => el.textContent = "");
 
         let errors = false;
@@ -75,27 +82,32 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         let invitedEmailsArray = [];
-        
+
         inviteEmails.forEach(emailField => {
             let emailValue = emailField.value.trim();
             let existingError = emailField.parentNode.querySelector(".error");
-        
+
             if (existingError) {
                 existingError.remove();
             }
-        
+
             if (emailValue && /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(emailValue)) {
                 invitedEmailsArray.push(emailValue);
-            } 
-            else {
+            } else {
                 let errorMsg = document.createElement("small");
                 errorMsg.classList.add("error");
                 errorMsg.textContent = "Enter a valid invite email address.";
                 emailField.parentNode.appendChild(errorMsg);
                 errors = true;
             }
+            
+            emailField.addEventListener("input", function () {
+                let errorElement = emailField.parentNode.querySelector(".error");
+                if (errorElement && /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(emailField.value.trim())) {
+                    errorElement.remove();
+                }
+            });
         });
-        
 
         if (errors) {
             return;
@@ -117,6 +129,5 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("users", JSON.stringify(storedData));
 
         window.location.href = "list.html";
-        
     });
 });
