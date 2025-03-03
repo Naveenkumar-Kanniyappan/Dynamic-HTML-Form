@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        document.querySelectorAll(".error").forEach(el => el.textContent = "");
+        document.querySelectorAll(".error").forEach(el => el.remove());
 
         let errors = false;
 
