@@ -19,7 +19,6 @@ body {
     flex-direction: column;
     max-height: 80vh; 
     overflow-y: auto; 
-
 }
 
 h2 {
@@ -100,7 +99,8 @@ button:hover {
     gap: 10px;
     margin-top: 5px;
 }
-.email-field button{
+
+.email-field button {
     background-color: #f74658;
     border: none;
     color: white;
@@ -111,6 +111,7 @@ button:hover {
     margin-left: 10px;
     width: 20%;
 }
+
 .error {
     color: red;
     font-size: 12px;
@@ -131,19 +132,19 @@ a.btn {
 a.btn:hover {
     background: #388E3C;
 }
-#addEmail{
-    width: 49%;
-}
-#submit{
+
+#addEmail {
     width: 49%;
 }
 
-#remove{
+#submit {
+    width: 49%;
+}
+
+#remove {
     width: 20%;
 }
 
-#country{
+#country {
     width: 100%;
 }
-
-

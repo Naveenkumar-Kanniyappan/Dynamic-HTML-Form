@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let removeBtn = document.createElement("button");
         removeBtn.textContent = "Remove";
         removeBtn.type = "button";
+        removeBtn.classList.add("removeEmail");
         removeBtn.addEventListener("click", function () {
             inviteEmailsDiv.removeChild(div);
         });
@@ -33,13 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        document.querySelectorAll(".error").forEach(el => el.remove());
+        document.querySelectorAll(".error").forEach(el => el.textContent = "");
 
         let errors = false;
 
         let fullName = document.getElementById("fullName").value.trim();
         let email = document.getElementById("email").value.trim();
         let password = document.getElementById("password").value.trim();
+        let confirmPassword = document.getElementById("confirmPassword").value.trim();
         let mobile = document.getElementById("mobile").value.trim();
         let dob = document.getElementById("dob").value;
         let gender = document.querySelector('input[name="gender"]:checked');
@@ -73,6 +75,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (password.length < 6) {
             document.getElementById("passwordError").textContent = "Password must be at least 6 characters.";
+            errors = true;
+        }
+
+        if (password !== confirmPassword) {
+            document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
             errors = true;
         }
 
