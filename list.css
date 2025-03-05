@@ -1,9 +1,13 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0px;
-    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
@@ -11,13 +15,14 @@ body {
     padding: 20px;
     width: 90%;
     margin: auto;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     text-align: center;
     color: #333;
+    margin-bottom: 20px;
 }
 
 table {
@@ -46,41 +51,15 @@ button {
     background-color: #f74658;
     color: white;
     border: none;
-    padding: 12px 17px;
+    padding: 10px 15px;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 4px;
     transition: background 0.3s ease-in-out;
+    margin-top: 20px;
 }
 
 button:hover {
     background-color: #c82333;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-ul li {
-    margin: 5px 0;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.delete-btn {
-    background-color: #ff5733;
-    border: none;
-    color: white;
-    padding: 4px 8px;
-    font-size: 12px;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-.delete-btn:hover {
-    background-color: #c70039;
 }
 
 a.btn {
@@ -94,5 +73,20 @@ a.btn {
 }
 
 a.btn:hover {
-    background: #175e19cc;
+    background: #388E3C;
+}
+
+.delete-invite-btn {
+    background-color: #f74658;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.delete-invite-btn:hover {
+    background-color: #c82333;
 }

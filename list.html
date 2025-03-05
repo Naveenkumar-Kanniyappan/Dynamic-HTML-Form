@@ -24,72 +24,10 @@
             </thead>
             <tbody id="dataList"></tbody>
         </table>
-        <button onclick="clearAllData()">Clear All Data</button>
+        <button class="btn" onclick="clearAllData()">Clear All Data</button>
         <a href="index.html" class="btn">Back to Form</a>
     </div>
-    
-    <script>
-        let users = JSON.parse(localStorage.getItem("users")) || [];
-        let dataList = document.getElementById("dataList");
-
-        function renderTable() {
-            dataList.innerHTML = "";
-            if (users.length === 0) {
-                dataList.innerHTML = `<tr><td colspan="8" style="text-align:center;">No data available.</td></tr>`;
-                return;
-            }
-
-            users.forEach((user, userIndex) => {
-                let inviteEmailsHTML = user.inviteEmails.length > 0 ? "<ul>" : "No invites";
-                
-                user.inviteEmails.forEach((email, emailIndex) => {
-                    inviteEmailsHTML += `
-                        <li>${email} 
-                            <button class="delete-btn" onclick="deleteInviteEmail(${userIndex}, ${emailIndex})">Remove</button>
-                        </li>`;
-                });
-
-                inviteEmailsHTML += user.inviteEmails.length > 0 ? "</ul>" : "";
-
-                dataList.innerHTML += `
-                    <tr>
-                        <td>${user.fullName}</td>
-                        <td>${user.email}</td>
-                        <td>${user.mobile}</td>
-                        <td>${user.dob}</td>
-                        <td>${user.gender}</td>
-                        <td>${user.country}</td>
-                        <td>${inviteEmailsHTML}</td>
-                        <td>
-                            <button class="delete-btn" onclick="deleteEntry(${userIndex})">Delete</button>
-                        </td>
-                    </tr>`;
-            });
-        }
-
-        function deleteEntry(index) {
-            if (confirm("Are you sure you want to delete this entry?")) {
-                users.splice(index, 1);
-                localStorage.setItem("users", JSON.stringify(users));
-                renderTable();
-            }
-        }
-
-        function deleteInviteEmail(userIndex, emailIndex) {
-            users[userIndex].inviteEmails.splice(emailIndex, 1);
-            localStorage.setItem("users", JSON.stringify(users));
-            renderTable();
-        }
-
-        function clearAllData() {
-            if (confirm("Are you sure you want to clear all data?")) {
-                localStorage.removeItem("users");
-                users = [];
-                renderTable();
-            }
-        }
-
-        renderTable();
-    </script>
+   
+    <script src="list-script.js"></script>
 </body>
 </html>
